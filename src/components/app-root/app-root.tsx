@@ -49,10 +49,11 @@ export class AppRoot {
         this.name = this.tempName;
         return false;
       }
-      const foundUsers = this.name.filter(user => {
+      const foundUsers = this.tempName.filter(user => {
           return user.name.toLowerCase().indexOf(this.dataVal.toLowerCase()) > -1;
       });
       this.name = foundUsers;
+      console.log(this.name);
     };
 
     return (
