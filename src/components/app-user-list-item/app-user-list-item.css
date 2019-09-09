@@ -1,0 +1,74 @@
+.list-item-parent {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2%;
+}
+
+.first-level {
+  width: 40%;
+}
+
+.second-level {
+    margin-left: 3%;
+    width: 50%;
+}
+
+app-user-details {
+  width: 100%;
+}
+
+.user-list-container {
+    box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.6%;
+    background: #fff;
+    line-height: 1.4;
+    font-family: "Open Sans";
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.user-list-container:hover {
+  border: 1px solid rgb(0, 123, 255);
+  cursor: pointer;
+}
+
+.user-list-container .post-header .post-name {
+  font-size: 14px;
+  display: inline-block;
+  font-weight: bold
+}
+.user-list-container .post-header .post-username {
+  display: inline-block;
+  margin-left: 5px;
+}
+.post-header, .post-content {
+  padding: 10px 15px;
+}
+.post-company, .post-username, .post-email {
+  color: #999;
+  font-size: 12px;
+}
+.post-content .post-content-title {
+  font-size: 18px;
+  color: rgb(0, 123, 255);
+}
+
+.post-content .post-content-body {
+  font-size: 14px;
+  padding: 10px
+}
+
+.post-footer .post-footer-comment {
+  padding: 10px;
+  color: #999;
+  font-size: 12px;
+  text-align: right;
+}
+
+.loading {
+  font-size: 16px;
+  font-family: "Open Sans";
+  color: #999;
+  text-align: center;
+}

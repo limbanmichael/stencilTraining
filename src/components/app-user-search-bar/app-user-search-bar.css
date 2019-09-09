@@ -1,0 +1,39 @@
+.filter-field, .filter-submit {
+    margin: 1rem auto;
+    box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.6%;
+    background: #fff;
+    line-height: 1.4;
+    font-family: "Open Sans";
+    font-size: 14px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 0;
+    border: 0px;
+    padding: 5px;
+  }
+  button.filter-submit {
+    color: white;
+    border: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: rgb(0, 123, 255);
+  }
+  
+  input.filter-field {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+  }
+  
+  input.filter-field:focus {
+    border: 1px solid #427cfe;
+    outline: none;
+  }
+
+  .filter-parent {
+    width: 40%;
+    margin-left: 2%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
