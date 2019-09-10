@@ -1,5 +1,6 @@
 import { Component, h, State } from '@stencil/core';
 import Tunnel from '../data/user';
+import { allUserData } from '../data/user';
 
 
 @Component({
@@ -12,15 +13,12 @@ export class AppRoot {
   @State() tempName;
   @State() dataVal: string;
 
-  componentWillLoad() {
-    fetch('http://jsonplaceholder.typicode.com/users/')
-      .then((response: Response) => response.json())
-      .then(response => {
-        this.name = response;
-        this.tempName = this.name;
-        console.log(this.name);
-      });
-  }
+  async componentWillLoad() {
+    const retrievedData = await allUserData.getUserData();
+    this.name = retrievedData;
+    this.tempName = retrievedData;
+    console.log(this.tempName, ' retrieve data');
+  };
 
 
   render() {
@@ -47,18 +45,9 @@ export class AppRoot {
     };
 
     const handleChange = event => {
-      this.dataVal = event.target.value;
-      console.log(this.dataVal);
-
-      if (!this.dataVal) {
-        this.name = this.tempName;
-        return false;
-      }
-      const foundUsers = this.tempName.filter(user => {
-          return user.name.toLowerCase().indexOf(this.dataVal.toLowerCase()) > -1;
-      });
+      const foundUsers = allUserData.handleChangeFromTunnel(event, this.tempName);
       this.name = foundUsers;
-      console.log(this.name);
+      console.log(foundUsers, ' found users');
     };
 
     return (

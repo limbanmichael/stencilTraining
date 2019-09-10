@@ -14,10 +14,6 @@ export class AppUserListItem  {
   @Element() el: AppUserListItem;
   @Prop() allUsers = new Array();
 
-  componentDidLoad() {
-    console.log(this.allUsers, ' all users');
-  }
-
   viewFullDetails(details) {
     console.log(details, ' details');
     this.userDetails = {
