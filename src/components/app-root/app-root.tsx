@@ -12,43 +12,37 @@ export class AppRoot {
   @State() name;
   @State() tempName;
   @State() dataVal: string;
+  @State() userDetails;
+  @State() collapsed: boolean = true;
 
   async componentWillLoad() {
     const retrievedData = await allUserData.getUserData();
     this.name = retrievedData;
     this.tempName = retrievedData;
-    console.log(this.tempName, ' retrieve data');
   };
+
+  componentDidRender() {
+    console.log(this.userDetails, ' from root');
+  }
 
 
   render() {
 
     const state = {
       allUsers: this.name,
-      userDetails: {
-        name: '',
-        username: '',
-        email: '',
-        address: {
-          street: '',
-          suite: '',
-          city: '',
-          zip: ''
-        },
-        phone: '',
-        website: '',
-        company: {
-          name: '',
-          catchPhrase: ''
-        }
-      }
+      userDetails: this.userDetails
     };
 
     const handleChange = event => {
       const foundUsers = allUserData.handleChangeFromTunnel(event, this.tempName);
       this.name = foundUsers;
-      console.log(foundUsers, ' found users');
     };
+
+    const viewFullDetails = (detail) => {
+      const foundDetail = allUserData.viewFullDetails(detail);
+      this.collapsed = false;
+      this.userDetails = foundDetail;
+    }
 
     return (
       <div>
@@ -62,7 +56,10 @@ export class AppRoot {
               handleChange={handleChange}
               dataVal={this.dataVal}></app-user-search-bar>
 
-            <app-user-list-item></app-user-list-item>
+            <app-user-list-item viewFullDetails={viewFullDetails}>
+            </app-user-list-item>
+
+            {/* <app-user-details></app-user-details> */}
           </Tunnel.Provider>
           
         </main>

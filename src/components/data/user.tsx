@@ -41,6 +41,29 @@ class UserController {
       return foundUsers;
     }
   }
+
+  viewFullDetails(details) {
+    const userDetails = {
+      name: details.name,
+      username: details.username,
+      email: details.email,
+      address: {
+        street: details.address.street,
+        suite: details.address.suite,
+        city: details.address.city,
+        zip: details.address.zipcode
+      },
+      phone: details.phone,
+      website: details.website,
+      company: {
+        name: details.company.name,
+        catchPhrase: details.catchPhrase
+      }
+    };
+    console.log(userDetails, ' from tunner user detail');
+    return userDetails;
+  }
+
 }
 
 export const allUserData = new UserController();

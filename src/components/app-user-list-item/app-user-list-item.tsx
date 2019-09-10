@@ -9,35 +9,14 @@ import Tunnel from '../data/user';
 export class AppUserListItem  {
   
   // @Prop() userData;
-  @State() collapsed: boolean = true;
+  @State() collapsed: boolean;
   @Prop() userDetails;
   @Element() el: AppUserListItem;
   @Prop() allUsers = new Array();
+  @Prop() viewFullDetails;
 
   componentDidRender() {
-    console.log(this.allUsers, ' did render');
-  }
-
-  viewFullDetails(details) {
-    console.log(details, ' details');
-    this.userDetails = {
-      name: details.name,
-      username: details.username,
-      email: details.email,
-      address: {
-        street: details.address.street,
-        suite: details.address.suite,
-        city: details.address.city,
-        zip: details.address.zipcode
-      },
-      phone: details.phone,
-      website: details.website,
-      company: {
-        name: details.company.name,
-        catchPhrase: details.catchPhrase
-      }
-    };
-    this.collapsed = false;
+    console.log(this.userDetails, ' did render');
   }
   
   render() {
@@ -61,7 +40,6 @@ export class AppUserListItem  {
         <div class="second-level">
 
           <app-user-details
-            userDetails={this.userDetails}
             collapsed={this.collapsed}
             toggle={toggle}></app-user-details>
 
@@ -71,4 +49,4 @@ export class AppUserListItem  {
   }
 }
 
-Tunnel.injectProps(AppUserListItem, ['allUsers'])
+Tunnel.injectProps(AppUserListItem, ['allUsers', 'userDetails'])

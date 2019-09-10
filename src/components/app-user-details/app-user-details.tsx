@@ -1,4 +1,5 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Element } from '@stencil/core';
+import Tunnel from '../data/user';
 
 @Component({
     tag: 'app-user-details',
@@ -10,6 +11,11 @@ export class AppUserDetails {
     @Prop() userDetails
     @Prop() toggle;
     @Prop() collapsed;
+    @Element() el: AppUserDetails;
+
+    componentDidRender() {
+        console.log(this.userDetails, ' from user details');
+    }
 
     initializeValue() {
         if (!this.userDetails) {
@@ -44,3 +50,5 @@ export class AppUserDetails {
         );
     }
 }
+
+Tunnel.injectProps(AppUserDetails, ['userDetails'])
