@@ -12,15 +12,6 @@ export class AppRoot {
   @State() sampleText = 'sample';
   @State() dataVal: string;
 
-  // handleChange(event) {
-    // console.log(event.target.value);
-      // this.dataVal = event.target.value;
-      // const foundUsers = this.name.filter(user => {
-      //     return user.name.toLowerCase().indexOf(this.dataVal.toLowerCase()) > -1;
-      // });
-      // console.log(this.dataVal);
-  // }
-
   userData = name => {
     this.name = name;
   }

@@ -16,14 +16,9 @@ export namespace Components {
     'userDetails': any;
   }
   interface AppUserListItem {
-    'company': string;
-    'companyAddress': string;
-    'email': string;
-    'fullName': string;
     'removeData': any;
     'userData': any;
     'userDetails': { name: string; username: string; email: string; address: { street: string; suite: string; city: string; zip: string; }; phone: string; website: string; company: { name: string; catchPhrase: string; }; };
-    'userName': string;
   }
   interface AppUserSearchBar {
     'dataVal': any;
@@ -75,14 +70,9 @@ declare namespace LocalJSX {
     'userDetails'?: any;
   }
   interface AppUserListItem extends JSXBase.HTMLAttributes<HTMLAppUserListItemElement> {
-    'company'?: string;
-    'companyAddress'?: string;
-    'email'?: string;
-    'fullName'?: string;
     'removeData'?: any;
     'userData'?: any;
     'userDetails'?: { name: string; username: string; email: string; address: { street: string; suite: string; city: string; zip: string; }; phone: string; website: string; company: { name: string; catchPhrase: string; }; };
-    'userName'?: string;
   }
   interface AppUserSearchBar extends JSXBase.HTMLAttributes<HTMLAppUserSearchBarElement> {
     'dataVal'?: any;

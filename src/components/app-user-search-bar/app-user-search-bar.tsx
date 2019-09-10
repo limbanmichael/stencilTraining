@@ -23,10 +23,6 @@ export class AppUserSearchBar {
                     onInput={(event: UIEvent) => this.handleChange(event)}
                     class="filter-field" 
                     autofocus type="text"/>
-                {/* {this.userData.map((user) => 
-                    <div>{user.name}</div>
-                )}
-                <button onClick={this.removeData}>Remove from search bar</button> */}
             </div>
         );
     }

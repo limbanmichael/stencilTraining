@@ -9,11 +9,6 @@ export class AppUserListItem  {
   
   @Prop() userData;
   @Prop() removeData;
-  @Prop() userName: string;
-  @Prop() fullName: string;
-  @Prop() company: string;
-  @Prop() companyAddress: string;
-  @Prop() email: string;
   @State() collapsed: boolean = true;
   @Prop() userDetails = {
     name: '',
