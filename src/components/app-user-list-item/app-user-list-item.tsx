@@ -8,11 +8,15 @@ import Tunnel from '../data/user';
 })
 export class AppUserListItem  {
   
-  @Prop() userData;
+  // @Prop() userData;
   @State() collapsed: boolean = true;
   @Prop() userDetails;
   @Element() el: AppUserListItem;
   @Prop() allUsers = new Array();
+
+  componentDidRender() {
+    console.log(this.allUsers, ' did render');
+  }
 
   viewFullDetails(details) {
     console.log(details, ' details');
@@ -45,7 +49,7 @@ export class AppUserListItem  {
       <div class="list-item-parent">
 
         <div class="first-level">
-          {this.userData.map((user) =>
+          {this.allUsers.map((user) =>
             <div class="user-list-container" onClick={this.viewFullDetails.bind(this, user)}>
               <div class="post-header">
                 <div class="post-name">{user.name}</div>
@@ -67,4 +71,4 @@ export class AppUserListItem  {
   }
 }
 
-Tunnel.injectProps(AppUserListItem, ['allUsers', 'userDetails'])
+Tunnel.injectProps(AppUserListItem, ['allUsers'])

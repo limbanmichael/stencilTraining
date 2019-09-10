@@ -60,11 +60,9 @@ export class AppRoot {
           <Tunnel.Provider state={state}>
             <app-user-search-bar 
               handleChange={handleChange}
-              dataVal={this.dataVal}
-              userData={this.name}></app-user-search-bar>
+              dataVal={this.dataVal}></app-user-search-bar>
 
-            <app-user-list-item 
-              userData={this.name}></app-user-list-item>
+            <app-user-list-item></app-user-list-item>
           </Tunnel.Provider>
           
         </main>

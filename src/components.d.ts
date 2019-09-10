@@ -17,13 +17,11 @@ export namespace Components {
   }
   interface AppUserListItem {
     'allUsers': any[];
-    'userData': any;
     'userDetails': any;
   }
   interface AppUserSearchBar {
     'dataVal': any;
     'handleChange': any;
-    'userData': any;
   }
 }
 
@@ -70,13 +68,11 @@ declare namespace LocalJSX {
   }
   interface AppUserListItem extends JSXBase.HTMLAttributes<HTMLAppUserListItemElement> {
     'allUsers'?: any[];
-    'userData'?: any;
     'userDetails'?: any;
   }
   interface AppUserSearchBar extends JSXBase.HTMLAttributes<HTMLAppUserSearchBarElement> {
     'dataVal'?: any;
     'handleChange'?: any;
-    'userData'?: any;
   }
 
   interface IntrinsicElements {
