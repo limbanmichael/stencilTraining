@@ -1,4 +1,5 @@
 import { Component, h, State } from '@stencil/core';
+import Tunnel from '../data/user';
 
 
 @Component({
@@ -9,12 +10,7 @@ import { Component, h, State } from '@stencil/core';
 export class AppRoot {
   @State() name;
   @State() tempName;
-  @State() sampleText = 'sample';
   @State() dataVal: string;
-
-  userData = name => {
-    this.name = name;
-  }
 
   componentWillLoad() {
     fetch('http://jsonplaceholder.typicode.com/users/')
@@ -28,8 +24,26 @@ export class AppRoot {
 
 
   render() {
-    const removeData = () => {
-      this.name = [];
+
+    const state = {
+      allUsers: this.name,
+      userDetails: {
+        name: '',
+        username: '',
+        email: '',
+        address: {
+          street: '',
+          suite: '',
+          city: '',
+          zip: ''
+        },
+        phone: '',
+        website: '',
+        company: {
+          name: '',
+          catchPhrase: ''
+        }
+      }
     };
 
     const handleChange = event => {
@@ -54,15 +68,15 @@ export class AppRoot {
         </header>
 
         <main>
-          <app-user-search-bar 
-            handleChange={handleChange}
-            dataVal={this.dataVal}
-            removeData={removeData} 
-            userData={this.name}></app-user-search-bar>
+          <Tunnel.Provider state={state}>
+            <app-user-search-bar 
+              handleChange={handleChange}
+              dataVal={this.dataVal}
+              userData={this.name}></app-user-search-bar>
 
-          <app-user-list-item 
-            removeData={removeData} 
-            userData={this.name}></app-user-list-item>
+            <app-user-list-item 
+              userData={this.name}></app-user-list-item>
+          </Tunnel.Provider>
           
         </main>
       </div>

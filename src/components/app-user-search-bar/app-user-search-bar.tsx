@@ -10,7 +10,6 @@ import { Component, h, Prop } from '@stencil/core';
 // http://jsonplaceholder.typicode.com/users?username=Antonette
 export class AppUserSearchBar {
     @Prop() userData;
-    @Prop() removeData;
     @Prop() dataVal;
     @Prop() handleChange;
     

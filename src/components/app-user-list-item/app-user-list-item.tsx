@@ -1,4 +1,5 @@
-import  { Component, h, Prop, State } from  '@stencil/core';
+import  { Component, h, Prop, State, Element } from  '@stencil/core';
+import Tunnel from '../data/user';
 
 @Component({
   tag: 'app-user-list-item',
@@ -8,27 +9,13 @@ import  { Component, h, Prop, State } from  '@stencil/core';
 export class AppUserListItem  {
   
   @Prop() userData;
-  @Prop() removeData;
   @State() collapsed: boolean = true;
-  @Prop() userDetails = {
-    name: '',
-    username: '',
-    email: '',
-    address: {
-      street: '',
-      suite: '',
-      city: '',
-      zip: ''
-    },
-    phone: '',
-    website: '',
-    company: {
-      name: '',
-      catchPhrase: ''
-    }
-  };
+  @Prop() userDetails;
+  @Element() el: AppUserListItem;
+  @Prop() allUsers = new Array();
 
   componentDidLoad() {
+    console.log(this.allUsers, ' all users');
   }
 
   viewFullDetails(details) {
@@ -83,3 +70,5 @@ export class AppUserListItem  {
       );
   }
 }
+
+Tunnel.injectProps(AppUserListItem, ['allUsers', 'userDetails'])
